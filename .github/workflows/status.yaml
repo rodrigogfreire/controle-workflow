@@ -25,7 +25,7 @@ jobs:
     needs: [job-com-erro]
     name: Sucesso
     runs-on: ubuntu-latest
-    if: ${{ failure() }}
+    if: ${{ success() || failure() }}
     steps:
       - name: Este Job vai rodar mesmo que o dependente quebre
         run: echo "Echo foi escrito errado!"
