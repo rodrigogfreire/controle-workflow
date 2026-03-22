@@ -1,0 +1,12 @@
+name: Workflow Push
+on:
+  push:
+    tags:
+      - v*
+    
+jobs:
+  teste:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Teste de commig por Push Tags
+        run: echo "Esta action só roda quando há push de tag"
