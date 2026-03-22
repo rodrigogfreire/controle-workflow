@@ -10,6 +10,6 @@ jobs:
       - name: Echo Errado
         run: ech "Echo foi escrito errado!"
 
-      - name: Tem que funcionar
-        if: ${{ failure()}}
-        run: echo "Aqui vai rodar"
+      - name: Vai notificar se deu erro
+        if: ${{ failure() }}
+        run: echo "Deu erro na pipeline"
