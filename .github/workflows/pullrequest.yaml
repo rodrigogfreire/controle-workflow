@@ -1,0 +1,11 @@
+name: Workflow Pull Request
+on:
+  pull_request: 
+    branches: ["main"] 
+    
+jobs:
+  teste:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Teste para Pull Request
+        run: echo "Esta action só roda quando há pull request para a main"
