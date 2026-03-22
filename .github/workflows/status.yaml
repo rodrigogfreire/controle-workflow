@@ -1,0 +1,15 @@
+name: Workflow Controle Por Status
+on:
+  push:
+
+jobs:
+  job-com-erro:
+    name: Vai dar erro
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Errado
+        run: ech "Echo foi escrito errado!"
+
+      - name: Tem que funcionar
+        if: ${{ failure()}}
+        run: echo "Aqui vai rodar"
