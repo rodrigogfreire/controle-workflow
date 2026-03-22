@@ -1,0 +1,21 @@
+# Este tipo de Workflow ocorre apenas manualmente.
+name: Workflow Matrix
+on:
+  workflow_dispatch:
+
+jobs:
+  execucao-matrix:
+    strategy:
+      matrix:
+        versao: [16, 18, 20]
+        plataforma: ["windows", "ubuntu"]
+    runs-on: "${{ matrix.plataforma }}-latest"
+    steps:
+      - name: Intalacao do Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.versao }}
+      - name: Exibe a versao e plataforma
+        run: |
+          node --version
+          echo ${{ runner.os }}
