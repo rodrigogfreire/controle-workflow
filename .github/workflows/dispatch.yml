@@ -2,10 +2,18 @@
 name: Workflow Dipspatch
 on:
   workflow_dispatch:
+    inputs:
+      exemplo-input:
+        type: string
+        default: "Teste de Input"
+        required: true
+        description: "Teste de input"
 
 jobs:
   teste:
     runs-on: ubuntu-latest
     steps:
       - name: Action de Teste
-        run: echo "Disparado manualmente."
+        run: | 
+          echo "Disparado manualmente."
+          echo "Texto informado no input ${{ inputs.exemplo-input }}
