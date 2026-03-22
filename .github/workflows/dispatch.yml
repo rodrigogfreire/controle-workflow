@@ -16,4 +16,4 @@ jobs:
       - name: Action de Teste
         run: | 
           echo "Disparado manualmente."
-          echo "Texto informado no input ${{ inputs.exemplo-input }}
+          echo "Texto informado no input ${{ inputs.exemplo-input }}"
