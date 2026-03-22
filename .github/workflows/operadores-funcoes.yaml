@@ -13,7 +13,7 @@ on:
         default: true
 
 jobs:
-  teste:
+  teste-logico:
     runs-on: ubuntu-latest
     steps:
       - name: Operacoes com Strings
@@ -22,3 +22,15 @@ jobs:
         run: echo "${{ inputs.valor_numerico > 20 }}"
       - name: Operacoes com Boolean
         run: echo "${{ !inputs.valor_boolean }}"
+
+  teste-funcoes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Funcao Format
+        run: echo "${{ format('Nome do Ator é {0}', github.actor) }}"
+
+      - name: Funcao Contains
+        run: echo "${{ contains(inputs.valor_string, github.actor) }}"
+
+      - name: Funcao Json
+        run: echo "${{ toJson(inputs) }}"
