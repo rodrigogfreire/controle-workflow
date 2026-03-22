@@ -3,13 +3,27 @@ on:
   push:
 
 jobs:
-  job-com-erro:
-    name: Vai dar erro
+  action-com-erro:
+    name: Action com erro
     runs-on: ubuntu-latest
     steps:
-      - name: Echo Errado
+      - name: Echo Errado na Action
         run: ech "Echo foi escrito errado!"
 
       - name: Vai notificar se deu erro
         if: ${{ failure() }}
         run: echo "Deu erro na pipeline"
+
+  job-com-erro:
+    name: Job com erro
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Errado na Action
+        run: ech "Echo foi escrito errado!"
+
+  job-com-sucesso:
+    name: Sucesso
+    runs-on: ubuntu-latest
+    steps:
+      - name: Este Job vai rodar
+        run: echo "Echo foi escrito errado!"        
