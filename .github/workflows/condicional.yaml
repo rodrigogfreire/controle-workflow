@@ -4,10 +4,25 @@ on:
 
 jobs:
   apenas-main:
-    if: ${{  contains(github.ref, 'main') }}
+    if: ${{ contains(github.ref, 'main') }}
     name: Este Job só executa na Branch Main
     runs-on: ubuntu-latest
     steps:
       - name: Executando na Main
         run: echo "Executando apenas na main"
-    
+
+  apenas-fix:
+    if: ${{ contains(github.ref, 'fix') }}
+    name: Este Job só executa em Branch Fix
+    runs-on: ubuntu-latest
+    steps:
+      - name: Executando apenas Fix
+        run: echo "Executando fix"
+
+  apenas-feature:
+    if: ${{ contains(github.ref, 'feature') }}
+    name: Este Job só executa em Branch Features
+    runs-on: ubuntu-latest
+    steps:
+      - name: Executando apenas Fix
+        run: echo "Executando fix"
