@@ -22,8 +22,10 @@ jobs:
         run: ech "Echo foi escrito errado!"
 
   job-com-sucesso:
+    needs: [job-com-erro]
     name: Sucesso
     runs-on: ubuntu-latest
+    if: ${{ failure() }}
     steps:
-      - name: Este Job vai rodar
-        run: echo "Echo foi escrito errado!"        
+      - name: Este Job vai rodar mesmo que o dependente quebre
+        run: echo "Echo foi escrito errado!"
