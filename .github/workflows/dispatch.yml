@@ -1,0 +1,11 @@
+# Este tipo de Workflow ocorre apenas manualmente.
+name: Workflow Dipspatch
+on:
+  workflow_dispatch:
+
+jobs:
+  teste:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Action de Teste
+        run: echo "Disparo disparado manualmente."
