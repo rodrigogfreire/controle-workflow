@@ -1,4 +1,4 @@
-name: Workflow Push
+name: Workflow Push - Branch
 on:
   push:
     branches: ["main", "feature/*", "fix/*", "breaking/*"]
