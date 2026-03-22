@@ -1,4 +1,4 @@
-name: Workflow Push
+name: Workflow Push - Tags
 on:
   push:
     tags:
