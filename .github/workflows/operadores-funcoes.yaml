@@ -1,0 +1,24 @@
+name: Workflow com Funcoes e operadores
+on:
+  workflow_dispatch:
+    inputs:
+      valor_numerico:
+        type: number
+        default: 20
+      valor_string:
+        type: string
+        default: "xpto"
+      valor_boolean:
+        type: boolean
+        default: true
+
+jobs:
+  teste:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Operacoes com Strings
+        run: echo "${{ github.actor == inputs.valor_string }}"
+      - name: Operacoes com Number
+        run: echo "${{ inputs.valor_numerico > 20 }}"
+      - name: Operacoes com Boolean
+        run: echo "${{ !inputs.valor_boolean }}"
