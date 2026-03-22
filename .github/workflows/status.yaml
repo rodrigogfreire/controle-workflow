@@ -21,7 +21,7 @@ jobs:
       - name: Echo Errado na Action
         run: ech "Echo foi escrito errado!"
 
-  job-com-sucesso:
+  job-que-deve-sempre-rodar:
     needs: [job-com-erro]
     name: Sucesso
     runs-on: ubuntu-latest
