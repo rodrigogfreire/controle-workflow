@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Action de Teste
-        run: echo "Disparo disparado manualmente."
+        run: echo "Disparado manualmente."
