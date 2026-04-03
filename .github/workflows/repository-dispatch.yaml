@@ -1,0 +1,13 @@
+# Este tipo de Workflow ocorre apenas manualmente.
+name: Repository Dispatch
+on:
+  repository_dispatch:
+    types:
+      - deploy-remoto
+
+jobs:
+  deploy-kubernetes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy no Ambiente
+        run: echo "Executando o deploy no ambiente de ${{ github.event.client_payload.ambiente }}"
