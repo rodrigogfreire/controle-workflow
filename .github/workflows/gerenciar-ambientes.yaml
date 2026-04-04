@@ -1,10 +1,27 @@
 name: Workflow Ambientes
 on: 
     workflow_dispatch: 
+
 jobs:
-    deploy-fake:
+    deploy-fake-homologacao:
         runs-on: ubuntu-latest
         environment: Homologacao
         steps:
             - name: Fake de deploy em ambiente
               run: echo "Deploy no ambiente de ${{ vars.AMBIENTE_DEPLOY }}"
+
+    teste-fake-homologacao:
+        needs: deploy-fake-homologacao
+        runs-on: ubuntu-latest
+        environment: Homologacao
+        steps:
+            - name: Fake de Teste em ambiente
+              run: echo "Teste no ambiente de ${{ vars.AMBIENTE_DEPLOY }}"
+
+    deploy-fake-producao:
+        needs: teste-fake-homologacao
+        runs-on: ubuntu-latest
+        environment: Producao
+        steps:
+            - name: Fake de Teste em ambiente
+              run: echo "Teste no ambiente de ${{ vars.AMBIENTE_DEPLOY }}"
