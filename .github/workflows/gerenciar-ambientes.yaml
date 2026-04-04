@@ -5,7 +5,9 @@ on:
 jobs:
     deploy-fake-homologacao:
         runs-on: ubuntu-latest
-        environment: Homologacao
+        environment: 
+            name: Homologacao
+            url: "https://homologacao.exemplo.com"
         steps:
             - name: Fake de deploy em ambiente
               run: echo "Deploy no ambiente de ${{ vars.AMBIENTE_DEPLOY }}"
@@ -13,7 +15,9 @@ jobs:
     teste-fake-homologacao:
         needs: deploy-fake-homologacao
         runs-on: ubuntu-latest
-        environment: Homologacao
+        environment: 
+            name: Homologacao
+            url: "https://homologacao.exemplo.com"
         steps:
             - name: Fake de Teste em ambiente
               run: echo "Teste no ambiente de ${{ vars.AMBIENTE_DEPLOY }}"
@@ -21,7 +25,9 @@ jobs:
     deploy-fake-producao:
         needs: teste-fake-homologacao
         runs-on: ubuntu-latest
-        environment: Producao
+        environment: 
+            name: Producao
+            url: "https://producao.exemplo.com"
         steps:
             - name: Fake de Teste em ambiente
               run: echo "Teste no ambiente de ${{ vars.AMBIENTE_DEPLOY }}"
