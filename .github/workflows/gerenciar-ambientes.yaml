@@ -1,9 +1,10 @@
-name: CD - Ambientes
+name: Workflow Ambientes
 on: 
     workflow_dispatch: 
 jobs:
     deploy-fake:
         runs-on: ubuntu-latest
+        environment: homologacao
         steps:
             - name: Fake de deploy em ambiente
-              run: echo "Deploy no ambiente de ${{ vars.AMBIENTE_DEPLOY }}"
+              run: echo "Deploy no ambiente de ${{ env.AMBIENTE_DEPLOY }}"
